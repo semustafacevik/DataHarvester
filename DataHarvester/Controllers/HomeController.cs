@@ -1,5 +1,4 @@
-﻿using DataHarvester.Models;
-using DataHarvester.Parsers;
+﻿using DataHarvester.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,28 +41,9 @@ namespace DataHarvester.Controllers
                     readTask.Wait();
 
                     searchResults = readTask.Result;
-                    searchResults.DomainName = word;
+                    searchResults.SaveAllDB(100);
                 }
             }
-
-            string totalResult = searchResults.TotalResult();
-
-            ResultCleaner cleaner = new ResultCleaner(totalResult);
-            string cleanResult = cleaner.GetCleanResult();
-
-            Regex_Hostname r_hostname = new Regex_Hostname(cleanResult, searchResults.DomainName);
-            IEnumerable<string> hostnames = r_hostname.GetHostnames();
-
-            Regex_Mail r_mail = new Regex_Mail(cleanResult, searchResults.DomainName);
-            IEnumerable<string> mails = r_mail.GetMails();
-            IEnumerable<string> allMailFormats = r_mail.GetAllMailFormats();
-
-            Regex_File r_file = new Regex_File(searchResults.TotalResult());
-            IEnumerable<string> fileUrls = r_file.GetFileUrls();
-
-            Regex_LinkedIn r_linkedin = new Regex_LinkedIn(searchResults.TotalResult());
-            IEnumerable<string> linkedInProfiles = r_linkedin.GetProfiles();
-            IEnumerable<string> linkedInLinks = r_linkedin.GetLinks();
 
             return RedirectToAction("Index");
         }
