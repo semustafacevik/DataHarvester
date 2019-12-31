@@ -327,7 +327,7 @@ section {
     }
 }
 
-.page-content--bgf7 {
+.page-content--f7 {
     background: #f7f7f7;
 }
 
@@ -14583,6 +14583,19 @@ section {
 .bg-overlay--blue {
     background: rgba(49, 89, 253, 0.9);
 }
+
+.bg-overlay--green {
+    background: rgba(0, 177, 106, 1);
+}
+
+.bg-overlay--red {
+    background: rgba(217, 30, 24, 1);
+}
+
+.bg-overlay--orange {
+    background: rgba(241, 90, 34, 1);
+}
+
 
 .bg-c1 {
     background: #00ad5f;

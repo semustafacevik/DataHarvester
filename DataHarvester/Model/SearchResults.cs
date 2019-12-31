@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -33,6 +34,17 @@ namespace DataHarvester.Model
         public string ResultPorts { get; set; }
         public List<string> ResultPortList { get; set; }
 
+        public SearchResults()
+        {
+            ResultEmailList = new List<string>();
+            ResultAllEmailList = new List<string>();
+            ResultFileUrlList = new List<string>();
+            ResultHostnameList = new List<string>();
+            ResultIPList = new List<string>();
+            ResultLinkedInLinkList = new List<string>();
+            ResultLinkedInProfileList = new List<string>();
+            ResultPortList = new List<string>();
+        }
 
         private void PropertySplit()
         {
@@ -47,8 +59,6 @@ namespace DataHarvester.Model
                     switch (property.Name)
                     {
                         case "ResultEmails":
-                            ResultAllEmailList = new List<string>();
-                            ResultEmailList = new List<string>();
                             ResultAllEmailList = propertyList;
                             foreach (var mail in ResultAllEmailList)
                             {
@@ -58,32 +68,26 @@ namespace DataHarvester.Model
                             break;
 
                         case "ResultFileUrls":
-                            ResultFileUrlList = new List<string>();
                             ResultFileUrlList = propertyList;
                             break;
 
                         case "ResultHostnames":
-                            ResultHostnameList = new List<string>();
                             ResultHostnameList = propertyList;
                             break;
 
                         case "ResultIPs":
-                            ResultIPList = new List<string>();
                             ResultIPList = propertyList;
                             break;
 
                         case "ResultLinkedInLinks":
-                            ResultLinkedInLinkList = new List<string>();
                             ResultLinkedInLinkList = propertyList;
                             break;
 
                         case "ResultLinkedInProfiles":
-                            ResultLinkedInProfileList = new List<string>();
                             ResultLinkedInProfileList = propertyList;
                             break;
 
                         case "ResultPorts":
-                            ResultPortList = new List<string>();
                             ResultPortList = propertyList;
                             break;
 

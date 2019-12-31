@@ -16,6 +16,7 @@ namespace DataHarvester.Controllers
 
         public ActionResult Results(SearchResults sr)
         {
+            sr = new SearchResults();
             return View(sr);
         }
     }
