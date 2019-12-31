@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +208,7 @@
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\slick.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="Content\images\dh_white.png" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-100.svg" />
@@ -275,9 +277,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_Navbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -382,9 +382,9 @@
     <Content Include="Content\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
-    <Content Include="Views\Shared\_MenuSidebar.cshtml" />
     <Content Include="Views\Shared\_HeaderDesktop.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Result\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

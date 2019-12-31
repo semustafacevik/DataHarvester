@@ -14,16 +14,11 @@
     <!-- Title Page-->
     <title>@ViewBag.Title</title>
 
-    <!-- Fontfaces CSS-->
     <link href="~/Content/css/font-face.css" rel="stylesheet" media="all">
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="~/Content/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="~/Content/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
     <link href="~/Content/css/animsition.min.css" rel="stylesheet" media="all">
     <link href="~/Content/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="~/Content/css/animate.css" rel="stylesheet" media="all">
@@ -31,35 +26,34 @@
     <link href="~/Content/css/slick.css" rel="stylesheet" media="all">
     <link href="~/Content/css/select2.min.css" rel="stylesheet" media="all">
     <link href="~/Content/css/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
     <link href="~/Content/css/theme.css" rel="stylesheet" media="all">
-
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        @Html.Partial("_HeaderDesktop")
+        <!-- END HEADER DESKTOP-->
         <!-- HEADER MOBILE-->
         @Html.Partial("_HeaderMobile")
-        <!-- END HEADER MOBILE-->
-        <!-- MENU SIDEBAR-->
-        @Html.Partial("_MenuSidebar")
-        <!-- END MENU SIDEBAR-->
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            @Html.Partial("_HeaderDesktop")
-            <!-- HEADER DESKTOP-->
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    @RenderBody()
+        <!-- END HEADER MOBILE -->
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">          
+            @RenderBody()
+            <!-- COPYRIGHT-->
+            <section class="p-t-60 p-b-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>Copyright © @DateTime.Now.Year Colorlib.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+            </section>
+            <!-- END COPYRIGHT-->
         </div>
-
     </div>
 
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
@@ -75,17 +69,8 @@
     <script src="~/Scripts/perfect-scrollbar.min.js"></script>
     <script src="~/Scripts/Chart.bundle.min.js"></script>
     <script src="~/Scripts/select2.min.js"></script>
-
-    <!-- Main JS-->
     <script src="~/Scripts/main.js"></script>
 
 </body>
-
 </html>
-<!-- end document-->
 
-
-@*<hr />
-<footer>
-    <p>&copy; @DateTime.Now.Year - DataHarvester</p>
-</footer>*@
