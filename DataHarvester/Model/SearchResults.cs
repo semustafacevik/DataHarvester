@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web;
 using DataHarvester.Model.EntityFramework;
 
@@ -13,79 +12,89 @@ namespace DataHarvester.Model
         public string SearchDate { get; set; }
 
         public string ResultEmails { get; set; }
-        private List<string> ResultAllEmailList { get; set; }
+        public List<string> ResultEmailList { get; set; }
+        public List<string> ResultAllEmailList { get; set; }
 
         public string ResultFileUrls { get; set; }
-        private List<string> ResultFileUrlList { get; set; }
+        public List<string> ResultFileUrlList { get; set; }
 
         public string ResultHostnames { get; set; }
-        private List<string> ResultHostnameList { get; set; }
+        public List<string> ResultHostnameList { get; set; }
 
         public string ResultIPs { get; set; }
-        private List<string> ResultIPList { get; set; }
+        public List<string> ResultIPList { get; set; }
 
         public string ResultLinkedInLinks { get; set; }
-        private List<string> ResultLinkedInLinkList { get; set; }
+        public List<string> ResultLinkedInLinkList { get; set; }
 
         public string ResultLinkedInProfiles { get; set; }
-        private List<string> ResultLinkedInProfileList { get; set; }
+        public List<string> ResultLinkedInProfileList { get; set; }
 
         public string ResultPorts { get; set; }
-        private List<string> ResultPortList { get; set; }
+        public List<string> ResultPortList { get; set; }
 
-        DataHarvesterDBEntities db;
 
         private void PropertySplit()
         {
-            foreach (var property in typeof(SearchResults).GetProperties(BindingFlags.Public | BindingFlags.Instance))
+            foreach (var property in typeof(SearchResults).GetProperties())
             {
-                string propertyValue = (string)property.GetValue(this);
-                List<string> propertyList = propertyValue.Split('¨').ToList();
-                propertyList.RemoveAt(0);
-
-                switch (property.Name)
+                if (property.PropertyType == typeof(string))
                 {
-                    case "ResultEmails":
-                        ResultAllEmailList = new List<string>();
-                        ResultAllEmailList = propertyList;
-                        break;
+                    string propertyValue = (string)property.GetValue(this);
+                    List<string> propertyList = propertyValue.Split('¨').ToList();
+                    propertyList.RemoveAt(0);
 
-                    case "ResultFileUrls":
-                        ResultFileUrlList = new List<string>();
-                        ResultFileUrlList = propertyList;
-                        break;
+                    switch (property.Name)
+                    {
+                        case "ResultEmails":
+                            ResultAllEmailList = new List<string>();
+                            ResultEmailList = new List<string>();
+                            ResultAllEmailList = propertyList;
+                            foreach (var mail in ResultAllEmailList)
+                            {
+                                if (mail.Contains(SearchQuery))
+                                    ResultEmailList.Add(mail);
+                            }
+                            break;
 
-                    case "ResultHostnames":
-                        ResultHostnameList = new List<string>();
-                        ResultHostnameList = propertyList;
-                        break;
+                        case "ResultFileUrls":
+                            ResultFileUrlList = new List<string>();
+                            ResultFileUrlList = propertyList;
+                            break;
 
-                    case "ResultIPs":
-                        ResultIPList = new List<string>();
-                        ResultIPList = propertyList;
-                        break;
+                        case "ResultHostnames":
+                            ResultHostnameList = new List<string>();
+                            ResultHostnameList = propertyList;
+                            break;
 
-                    case "ResultLinkedInLinks":
-                        ResultLinkedInLinkList = new List<string>();
-                        ResultLinkedInLinkList = propertyList;
-                        break;
+                        case "ResultIPs":
+                            ResultIPList = new List<string>();
+                            ResultIPList = propertyList;
+                            break;
 
-                    case "ResultLinkedInProfiles":
-                        ResultLinkedInProfileList = new List<string>();
-                        ResultLinkedInProfileList = propertyList;
-                        break;
+                        case "ResultLinkedInLinks":
+                            ResultLinkedInLinkList = new List<string>();
+                            ResultLinkedInLinkList = propertyList;
+                            break;
 
-                    case "ResultPorts":
-                        ResultPortList = new List<string>();
-                        ResultPortList = propertyList;
-                        break;
+                        case "ResultLinkedInProfiles":
+                            ResultLinkedInProfileList = new List<string>();
+                            ResultLinkedInProfileList = propertyList;
+                            break;
 
-                    default:
-                        break;
+                        case "ResultPorts":
+                            ResultPortList = new List<string>();
+                            ResultPortList = propertyList;
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
             }
         }
 
+        DataHarvesterDBEntities db;
         public void SaveAllDB(int userID)
         {
             db = new DataHarvesterDBEntities();

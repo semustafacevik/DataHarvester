@@ -385,6 +385,7 @@
     <Content Include="Views\Shared\_HeaderDesktop.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Result\Results.cshtml" />
+    <Content Include="Views\Home\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

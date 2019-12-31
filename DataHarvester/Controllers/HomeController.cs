@@ -42,6 +42,8 @@ namespace DataHarvester.Controllers
 
                     searchResults = readTask.Result;
                     searchResults.SaveAllDB(100);
+
+                    return View("Results", searchResults);
                 }
             }
 

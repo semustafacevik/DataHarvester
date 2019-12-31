@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataHarvester.Model;
 
 namespace DataHarvester.Controllers
 {
@@ -13,9 +14,9 @@ namespace DataHarvester.Controllers
             return View();
         }
 
-        public ActionResult Results()
+        public ActionResult Results(SearchResults sr)
         {
-            return View();
+            return View(sr);
         }
     }
 }
