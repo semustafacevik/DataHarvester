@@ -4,27 +4,88 @@
 }
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <meta name="viewport" content="width=device-width">
-    <title>@ViewBag.Title - DataHarvester</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @RenderSection("contents", required: false)
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>@ViewBag.Title</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="~/Content/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="~/Content/css/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/animate.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/slick.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/css/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/Content/css/theme.css" rel="stylesheet" media="all">
+
 </head>
-<body>
-    @Html.Partial("_Navbar")
-    <div class="container">
-        <br />
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - DataHarvester</p>
-        </footer>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        @Html.Partial("_HeaderMobile")
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+        @Html.Partial("_MenuSidebar")
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            @Html.Partial("_HeaderDesktop")
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/slick.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script src="~/Scripts/animsition.min.js"></script>
+    <script src="~/Scripts/bootstrap-progressbar.min.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.counterup.min.js"></script>
+    <script src="~/Scripts/circle-progress.min.js"></script>
+    <script src="~/Scripts/perfect-scrollbar.min.js"></script>
+    <script src="~/Scripts/Chart.bundle.min.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/Scripts/main.js"></script>
+
 </body>
+
 </html>
+<!-- end document-->
+
+
+@*<hr />
+<footer>
+    <p>&copy; @DateTime.Now.Year - DataHarvester</p>
+</footer>*@
