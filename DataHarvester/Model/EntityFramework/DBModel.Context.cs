@@ -18,6 +18,7 @@ namespace DataHarvester.Model.EntityFramework
         public DataHarvesterDBEntities()
             : base("name=DataHarvesterDBEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

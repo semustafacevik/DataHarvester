@@ -10,14 +10,15 @@ namespace DataHarvester.Controllers
 {
     public class HomeController : Controller
     {
-        SearchResults searchResults = null;
+        //ResultFree ResultFree = null;
+        ResultMember Result = null;
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Search(string word)
         {
-            string query = "/search/" + word;
+            string query = "/membersearch/" + word;
 
             using (var client = new HttpClient())
             {
@@ -37,13 +38,13 @@ namespace DataHarvester.Controllers
 
                 if (result.IsSuccessStatusCode)
                 {
-                    var readTask = result.Content.ReadAsAsync<SearchResults>();
+                    var readTask = result.Content.ReadAsAsync<ResultMember>();
                     readTask.Wait();
 
-                    searchResults = readTask.Result;
-                    searchResults.SaveAllDB(100);
+                    Result = readTask.Result;
+                    Result.SaveDB();
 
-                    return View("Results", searchResults);
+                    return View("Results", Result);
                 }
             }
 
