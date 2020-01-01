@@ -191,6 +191,8 @@
     <Compile Include="Model\EntityFramework\tblUser.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ResultFree.cs" />
+    <Compile Include="Model\ResultMember.cs" />
     <Compile Include="Model\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,11 +205,13 @@
     <Content Include="Content\css\font-face.css" />
     <Content Include="Content\css\fontawesome-all.min.css" />
     <Content Include="Content\css\hamburgers.min.css" />
+    <Content Include="Content\css\search-theme.css" />
     <Content Include="Content\css\material-design-iconic-font.min.css" />
     <Content Include="Content\css\perfect-scrollbar.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\slick.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="Content\images\dh_black.png" />
     <Content Include="Content\images\dh_white.png" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\Material-Design-Iconic-Font.svg" />
@@ -231,11 +235,12 @@
     <Content Include="Content\fonts\poppins\poppins-v5-latin-regular.svg" />
     <Content Include="Content\images\dh.png" />
     <Content Include="Content\images\profile.png" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Model\EntityFramework\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -258,6 +263,7 @@
     <Content Include="Scripts\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.bundle.min.js" />
+    <Content Include="Scripts\choices.js" />
     <Content Include="Scripts\circle-progress.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery.counterup.min.js" />
@@ -283,10 +289,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-100.eot" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-100.ttf" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-100.woff" />
@@ -383,9 +389,9 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
     <Content Include="Views\Shared\_HeaderDesktop.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Result\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

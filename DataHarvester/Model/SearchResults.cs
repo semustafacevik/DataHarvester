@@ -7,7 +7,7 @@ using DataHarvester.Model.EntityFramework;
 
 namespace DataHarvester.Model
 {
-    public class SearchResults
+    public abstract class SearchResults
     {
         public string SearchQuery { get; set; }
         public string SearchDate { get; set; }
@@ -46,6 +46,11 @@ namespace DataHarvester.Model
             ResultPortList = new List<string>();
         }
 
+        public SearchResults(int free)
+        {
+            ResultEmailList = new List<string>();
+        }
+
         private void PropertySplit()
         {
             foreach (var property in typeof(SearchResults).GetProperties())
@@ -62,7 +67,7 @@ namespace DataHarvester.Model
                             ResultAllEmailList = propertyList;
                             foreach (var mail in ResultAllEmailList)
                             {
-                                if (mail.Contains(SearchQuery))
+                                if (mail.EndsWith(SearchQuery))
                                     ResultEmailList.Add(mail);
                             }
                             break;
