@@ -216,7 +216,7 @@ svg:not(:root) {
  * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
-#button,
+button,
 input,
 optgroup,
 select,
@@ -235,7 +235,7 @@ textarea {
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
-#button,
+button,
 input {
     /* 1 */
     overflow: visible;
@@ -245,7 +245,7 @@ input {
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-#button,
+button,
 select {
     /* 1 */
     text-transform: none;
@@ -256,7 +256,7 @@ select {
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
-#button,
+button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
@@ -836,6 +836,10 @@ button {
     color: rgba(250, 0, 0, 0.80);
 }
 
+.search-success {
+    color: #44dd83;
+}
+
 .s130 form {
     width: 100%;
     max-width: 790px;
@@ -943,12 +947,12 @@ button {
   width: 100%;
   white-space: nowrap;
   font-size: 16px;
-  color: #fff;
+  color: #d9f1e3;
   border: 0;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  background: #9daca3;
+  background: #bee5ce;
   transition: all .2s ease-out, color .2s ease-out;
   font-weight: 300;
   background-image: url("../images/search.png");
@@ -958,7 +962,7 @@ button {
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search:hover {
-  background: #8e8e8e;
+  background: #a0e4bd;
   background-image: url("../images/dh_white.png");
   background-position: center;
   background-repeat:no-repeat;
