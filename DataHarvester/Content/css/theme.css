@@ -3455,6 +3455,37 @@ section {
     border-left: 3px solid #00ad5f;
 }
 
+.au-task__item--blue .au-task__item-inner {
+    border-left: 3px solid #01acdd;
+}
+
+.au-task__item--green .au-task__item-inner {
+    border-left: 3px solid #1ecf0a;
+}
+
+.au-task__item--red .au-task__item-inner {
+    border-left: 3px solid #d70819;
+}
+
+.au-task__item--orange .au-task__item-inner {
+    border-left: 3px solid #ff8300;
+}
+
+.au-task__item--darkblue .au-task__item-inner {
+    border-left: 3px solid #101ad5;
+}
+.au-task__item--purple .au-task__item-inner {
+    border-left: 3px solid #500dde;
+}
+
+.au-task__item--yellow .au-task__item-inner {
+    border-left: 3px solid #c9d102;
+}
+
+.au-task__item--pink .au-task__item-inner {
+    border-left: 3px solid #d80d77;
+}
+
 .au-task__footer {
     text-align: center;
     padding-top: 35px;
@@ -5014,14 +5045,14 @@ section {
 
 .statistic__item .icon i {
     font-size: 180px;
-    color: #808080;
-    opacity: .2;
+    color: rgba(128, 128, 128, 0.89);
+    opacity: .3;
     line-height: 1;
     vertical-align: baseline;
 }
 
 .statistic__item--green {
-    background: #00b26f;
+    background: #1ecf0a;
 }
 
 .statistic__item--orange {
@@ -5029,11 +5060,27 @@ section {
 }
 
 .statistic__item--blue {
-    background: #00b5e9;
+    background: #01acdd;
 }
 
 .statistic__item--red {
-    background: #fa4251;
+    background: #d70819;
+}
+
+.statistic__item--purple {
+    background: #500dde;
+}
+
+.statistic__item--yellow {
+    background: #c9d102;
+}
+
+.statistic__item--pink {
+    background: #d80d77;
+}
+
+.statistic__item--darkblue {
+    background: #101ad5;
 }
 
 /* ----- Statistic 2 ----- */
@@ -14581,21 +14628,36 @@ section {
 }
 
 .bg-overlay--blue {
-    background: rgba(49, 89, 253, 0.9);
+    background: #01acdd;
 }
 
 .bg-overlay--green {
-    background: rgba(0, 177, 106, 1);
+    background: #1ecf0a;
 }
 
 .bg-overlay--red {
-    background: rgba(217, 30, 24, 1);
+    background: #d70819;
 }
 
 .bg-overlay--orange {
-    background: rgba(241, 90, 34, 1);
+    background: #ff8300;
 }
 
+.bg-overlay--darkblue {
+    background: #101ad5;
+}
+
+.bg-overlay--purple {
+    background: #500dde;
+}
+
+.bg-overlay--yellow {
+    background: #c9d102;
+}
+
+.bg-overlay--pink {
+    background: #d80d77;
+}
 
 .bg-c1 {
     background: #00ad5f;

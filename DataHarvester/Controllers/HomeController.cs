@@ -49,5 +49,11 @@ namespace DataHarvester.Controllers
             }
             return PartialView("_SearchError");
         }
+
+        public ActionResult Test()
+        {
+            ResultMember rm = new ResultMember();
+            return View("Results", rm);
+        }
     }
 }
