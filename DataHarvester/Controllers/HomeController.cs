@@ -11,14 +11,14 @@ namespace DataHarvester.Controllers
     public class HomeController : Controller
     {
         //ResultFree ResultFree = null;
-        ResultMember Result = null;
+        ResultFree Result = null;
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Search(string word)
         {
-            string query = "/membersearch/" + word;
+            string query = "/search/" + word;
 
             using (var client = new HttpClient())
             {
@@ -31,24 +31,23 @@ namespace DataHarvester.Controllers
                 }
                 catch (Exception)
                 {
-                    return RedirectToAction("Index");
+                    return PartialView("_SearchError");
                 }
 
                 var result = responseTask.Result;
 
                 if (result.IsSuccessStatusCode)
                 {
-                    var readTask = result.Content.ReadAsAsync<ResultMember>();
+                    var readTask = result.Content.ReadAsAsync<ResultFree>();
                     readTask.Wait();
 
                     Result = readTask.Result;
                     Result.SaveDB();
 
-                    return View("Results", Result);
+                    return PartialView("_ResultsFree", Result);
                 }
             }
-
-            return RedirectToAction("Index");
+            return PartialView("_SearchError");
         }
     }
 }

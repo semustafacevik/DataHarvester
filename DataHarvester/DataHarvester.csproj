@@ -335,8 +335,6 @@
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\slick.css" />
     <Content Include="Content\css\theme.css" />
-    <Content Include="Content\images\dh_black.png" />
-    <Content Include="Content\images\dh_white.png" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-100.svg" />
@@ -357,7 +355,8 @@
     <Content Include="Content\fonts\poppins\poppins-v5-latin-900italic.svg" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-italic.svg" />
     <Content Include="Content\fonts\poppins\poppins-v5-latin-regular.svg" />
-    <Content Include="Content\images\dh.png" />
+    <Content Include="Content\images\dh_black.png" />
+    <Content Include="Content\images\dh_white.png" />
     <Content Include="Content\images\profile.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
@@ -391,6 +390,8 @@
     <Content Include="Scripts\circle-progress.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery.counterup.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.waypoints.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\perfect-scrollbar.min.js" />
@@ -398,6 +399,7 @@
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\slick.min.js" />
     <Content Include="Scripts\wow.min.js" />
+    <Content Include="Content\images\search.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -516,6 +518,8 @@
     <Content Include="Views\Result\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_ResultsFree.cshtml" />
+    <Content Include="Views\Home\_SearchError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

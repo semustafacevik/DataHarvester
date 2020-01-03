@@ -9,7 +9,7 @@ namespace DataHarvester.Model
     public class ResultMember : SearchResults
     {
         public List<string> ResultAllEmailList { get; set; }
-
+        
         public string ResultFileUrls { get; set; }
         public List<string> ResultFileUrlList { get; set; }
 

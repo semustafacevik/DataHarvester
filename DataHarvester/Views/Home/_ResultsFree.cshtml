@@ -1,0 +1,18 @@
+﻿@model DataHarvester.Model.ResultFree
+
+<br /><br />
+<table class="table table-bordered table-responsive-sm" id="tblResultsFree">
+    <thead class="thead-light">
+        <tr>
+            <th>"@Model.SearchQuery" ile eşleşen email listesi (@Model.ResultEmailList.Count() sonuç)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var email in Model.ResultEmailList)
+        {
+            <tr>
+                <td>@email</td>
+            </tr>
+        }
+    </tbody>
+</table>

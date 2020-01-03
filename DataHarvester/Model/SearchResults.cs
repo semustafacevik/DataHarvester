@@ -45,7 +45,6 @@ namespace DataHarvester.Model
                 userID = userID
             };
             db.tblResults.Add(newResultDB);
-
             return newResultDB;
         }
     }
