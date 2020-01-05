@@ -89,7 +89,7 @@ namespace DataHarvester.Model
         public override void SaveDB()
         {
             db = new DataHarvesterDBEntities();
-            tblResult newResult = base.SaveResultDB(103, db);
+            tblResult newResult = base.SaveResultDB(Convert.ToInt32(HttpContext.Current.User.Identity.Name), db);
 
             PropertySplit();
 

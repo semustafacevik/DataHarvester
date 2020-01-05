@@ -843,13 +843,7 @@ button {
 .s130 form {
     width: 100%;
     max-width: 790px;
-    padding-top: 15vh;
-}
-
-.s130 .form-member {
-    width: 100%;
-    max-width: 790px;
-    padding-top: 1px;
+    padding-top: 5vh;
 }
 
 .s130 form .inner-form {

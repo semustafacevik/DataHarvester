@@ -1,6 +1,7 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "DataHarvester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -37,12 +38,17 @@
             <div class="container">
                 <span class="info">Domain gir ve aramaya başla...</span><br />
             </div>
-            <div class="container">
-                <span class="info">LinkedIn, IP, Port, Host, Dosya listeleri ve daha fazla detay için </span><a href="//">üye ol</a><span class="infoo"> veya </span><a href="//">oturum aç</a>
-            </div>
-            <div class="container" id="ShowResults"></div>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="container">
+                    <span class="info">LinkedIn, IP, Port, Host, Dosya listeleri ve daha fazla detay için </span><a href="/Security/Register">kayıt ol</a><span class="infoo"> veya </span><a href="/Security/Login">giriş yap</a>
+                </div>
+            }
+            <div class="container" id="ShowResult"></div>
         </form>
     </div>
+    <div class="container" id="ShowResults"></div>
+
 
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Scripts/choices.js"></script>

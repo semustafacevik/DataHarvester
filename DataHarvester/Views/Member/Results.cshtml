@@ -1,15 +1,12 @@
 ﻿@model DataHarvester.Model.ResultMember
-@{
-    ViewBag.Title = "Results";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
+<br />
 @*Title : Result*@
 <section class="welcome p-t-10">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="title-4">Sonuçlar</h1>
+                <h1 class="title-4">Sonuçlar (@Model.SearchQuery)</h1>
                 <hr class="line-seprate">
             </div>
         </div>
@@ -322,7 +319,7 @@
                                 <div class="au-task__item au-task__item--pink">
                                     <div class="au-task__item-inner">
                                         <h5 class="task">
-                                            <a href="https://www.google.com/search?q=@profile" target="_blank">@profile</a>
+                                            <a href="https://www.google.com/search?q=@profile%20LinkedIn%20-@Model.SearchQuery" target="_blank">@profile</a>
                                         </h5>
                                     </div>
                                 </div>

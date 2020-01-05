@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataHarvester.Model.EntityFramework;
+using System.Net.Http;
 
 namespace DataHarvester.Controllers
 {
@@ -17,6 +18,40 @@ namespace DataHarvester.Controllers
         {
             return View();
         }
+
+        public ActionResult Search(string query)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://127.0.0.1:5000/");
+
+                var responseTask = client.GetAsync("/membersearch/" + query);
+                try
+                {
+                    responseTask.Wait();
+                }
+                catch (Exception)
+                {
+                    return PartialView("_SearchError");
+                }
+
+                var result = responseTask.Result;
+                ResultMember rm;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<ResultMember>();
+                    readTask.Wait();
+
+                    rm = readTask.Result;
+                    rm.SaveDB();
+
+                    return PartialView("Results", rm);
+                }
+            }
+            return PartialView("_SearchError");
+        }
+
         public ActionResult Result()
         {
             db = new DataHarvesterDBEntities();
@@ -40,7 +75,5 @@ namespace DataHarvester.Controllers
 
             return View("Results",rm);
         }
-
-       
     }
 }

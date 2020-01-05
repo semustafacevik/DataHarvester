@@ -519,13 +519,12 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
     <Content Include="Views\Shared\_HeaderDesktop.cshtml" />
-    <Content Include="Views\Home\Results.cshtml" />
+    <Content Include="Views\Member\Results.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ResultsFree.cshtml" />
-    <Content Include="Views\Home\_SearchError.cshtml" />
+    <Content Include="Views\Shared\_SearchError.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Result\Results.cshtml" />
-    <Content Include="Views\Member\Results.cshtml" />
     <Content Include="Views\Security\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>

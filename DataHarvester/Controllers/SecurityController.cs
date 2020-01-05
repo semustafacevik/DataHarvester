@@ -28,7 +28,7 @@ namespace DataHarvester.Controllers
 
             if (userDB != null)
             {
-                FormsAuthentication.SetAuthCookie(userDB.username, false);
+                FormsAuthentication.SetAuthCookie(userDB.ID.ToString(), false);
                 return RedirectToAction("Index", "Home");
             }
 
@@ -43,6 +43,12 @@ namespace DataHarvester.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
+        }
+
+        [AllowAnonymous]
+        public ActionResult IsAuthenticated()
+        {
+            return Content(User.Identity.IsAuthenticated.ToString());
         }
     }
 }
