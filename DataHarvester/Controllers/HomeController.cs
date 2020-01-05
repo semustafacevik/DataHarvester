@@ -8,23 +8,20 @@ using System.Web.Mvc;
 
 namespace DataHarvester.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-        //ResultFree ResultFree = null;
-        ResultFree Result = null;
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Search(string word)
+        public ActionResult Search(string query)
         {
-            string query = "/search/" + word;
-
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://127.0.0.1:5000/");
 
-                var responseTask = client.GetAsync(query);
+                var responseTask = client.GetAsync("/search/" + query);
                 try
                 {
                     responseTask.Wait();
@@ -35,25 +32,20 @@ namespace DataHarvester.Controllers
                 }
 
                 var result = responseTask.Result;
+                ResultFree rf;
 
                 if (result.IsSuccessStatusCode)
                 {
                     var readTask = result.Content.ReadAsAsync<ResultFree>();
                     readTask.Wait();
 
-                    Result = readTask.Result;
-                    Result.SaveDB();
+                    rf = readTask.Result;
+                    rf.SaveDB();
 
-                    return PartialView("_ResultsFree", Result);
+                    return PartialView("_ResultsFree", rf);
                 }
             }
             return PartialView("_SearchError");
-        }
-
-        public ActionResult Test()
-        {
-            ResultMember rm = new ResultMember();
-            return View("Results", rm);
         }
     }
 }

@@ -269,7 +269,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -329,6 +331,7 @@
     <Content Include="Content\css\font-face.css" />
     <Content Include="Content\css\fontawesome-all.min.css" />
     <Content Include="Content\css\hamburgers.min.css" />
+    <Content Include="Content\css\login.css" />
     <Content Include="Content\css\search-theme.css" />
     <Content Include="Content\css\material-design-iconic-font.min.css" />
     <Content Include="Content\css\perfect-scrollbar.css" />
@@ -516,11 +519,14 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
     <Content Include="Views\Shared\_HeaderDesktop.cshtml" />
-    <Content Include="Views\Result\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ResultsFree.cshtml" />
     <Content Include="Views\Home\_SearchError.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Result\Results.cshtml" />
+    <Content Include="Views\Member\Results.cshtml" />
+    <Content Include="Views\Security\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

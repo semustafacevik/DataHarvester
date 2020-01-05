@@ -814,7 +814,7 @@ button {
 }
 
 .s130 {
-  min-height: 100vh;
+  min-height: 8vh;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -843,7 +843,13 @@ button {
 .s130 form {
     width: 100%;
     max-width: 790px;
-    padding-top: 24vh;
+    padding-top: 15vh;
+}
+
+.s130 .form-member {
+    width: 100%;
+    max-width: 790px;
+    padding-top: 1px;
 }
 
 .s130 form .inner-form {

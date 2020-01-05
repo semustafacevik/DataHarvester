@@ -36,9 +36,9 @@ namespace DataHarvester.Model
             tblUser user = db.tblUsers.Where(x => x.username == SearchIP).FirstOrDefault();
             if(user == null)
             {
-                user = new tblUser() { 
+                user = new tblUser() {
                     username = SearchIP,
-                    password = "p123",
+                    password = "pS" + DateTime.Now.ToString(),
                     name = "Free Account",
                     emailAddress = "free@account.com"
                 };
