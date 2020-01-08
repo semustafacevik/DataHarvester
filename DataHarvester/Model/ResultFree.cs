@@ -40,7 +40,8 @@ namespace DataHarvester.Model
                     username = SearchIP,
                     password = "pS" + DateTime.Now.ToString(),
                     name = "Free Account",
-                    emailAddress = "free@account.com"
+                    emailAddress = "free@account.com",
+                    isActive = true
                 };
                 db.tblUsers.Add(user);
             }

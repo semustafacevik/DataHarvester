@@ -12,6 +12,7 @@ namespace DataHarvester.Controllers
     {
         DataHarvesterDBEntities db;
 
+        [Route("Login")]
         [AllowAnonymous]
         public ActionResult Login()
         {
@@ -20,35 +21,36 @@ namespace DataHarvester.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [Route("Login")]
         public ActionResult Login(tblUser user)
         {
             db = new DataHarvesterDBEntities();
 
-            var userDB = db.tblUsers.FirstOrDefault(x => x.username == user.username && x.password == user.password);
+            var userDB = db.tblUsers.FirstOrDefault(x => x.username == user.username && x.password == user.password && x.isActive == true);
 
             if (userDB != null)
             {
                 FormsAuthentication.SetAuthCookie(userDB.ID.ToString(), false);
+                Session.Add("user", userDB);
+                Session.Add("userID", userDB.ID);
                 return RedirectToAction("Index", "Home");
             }
 
             else
             {
-                ViewBag.Message = "Kullanıcı adı veya parola hatalı. Bilgilerinizi kontrol ediniz.";
+                ViewBag.Message = "Kullanıcı adı veya şifre hatalı. Bilgilerinizi kontrol ediniz.";
                 return View();
             }
         }
 
+        [Route("Logout")]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Remove("user");
+            Session.Remove("userID");
+            Session.Clear();
             return RedirectToAction("Login");
-        }
-
-        [AllowAnonymous]
-        public ActionResult IsAuthenticated()
-        {
-            return Content(User.Identity.IsAuthenticated.ToString());
         }
     }
 }

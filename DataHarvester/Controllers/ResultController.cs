@@ -7,6 +7,7 @@ using DataHarvester.Model;
 
 namespace DataHarvester.Controllers
 {
+    [AllowAnonymous]
     public class ResultController : Controller
     {
         public ActionResult Index()
@@ -14,10 +15,10 @@ namespace DataHarvester.Controllers
             return View();
         }
 
-        public ActionResult Results(SearchResults sr)
+        public ActionResult Results()
         {
-            //sr = new SearchResults();
-            return View();
+            SearchResults rm = new ResultMember();
+            return View(rm);
         }
     }
 }

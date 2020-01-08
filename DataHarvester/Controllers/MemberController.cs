@@ -14,11 +14,6 @@ namespace DataHarvester.Controllers
     {
         DataHarvesterDBEntities db;
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult Search(string query)
         {
             using (var client = new HttpClient())

@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>DataHarvester Sign In Page</title>
+    <title>DataHarvester - Giriş Sayfası</title>
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/login.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.min.js"></script>
@@ -19,15 +19,19 @@
         <div id="formContent">
             @using (Html.BeginForm())
             {
-            <div class="fadeIn first">
-                <img src="~/Content/images/logo.png" id="icon" alt="DataHarvester" />
-                <p><i>Sign In Page</i></p>
-            </div>
+                <div class="fadeIn first">
+                    <a href="/Home">
+                        <img src="~/Content/images/logo.png" id="icon" alt="DataHarvester" />
+                    </a>
+                    <p><i>GİRİŞ SAYFASI</i></p>
+                </div>
                 <form>
-                    @Html.TextBoxFor(x => x.username, htmlAttributes: new { id = "login", @class = "fadeIn second", name = "login", placeholder = "Username" })
-                    @Html.PasswordFor(x => x.password, htmlAttributes: new { id = "password", @class = "fadeIn third", name = "login", placeholder = "Password" })
-                    <input type="submit" class="fadeIn fourth" value="Sign In">
-                    <p class="fadeIn fourth errorMessage">@ViewBag.Message</p>
+                    @Html.TextBoxFor(x => x.username, htmlAttributes: new { id = "login", @class = "fadeIn second", name = "login", placeholder = "Kullanıcı Adı", maxlength = 25 })
+                    @Html.PasswordFor(x => x.password, htmlAttributes: new { id = "password", @class = "fadeIn third", name = "login", placeholder = "Şifre", maxlength = 6 })
+                    <input type="submit" class="fadeIn fourth" value="GİRİŞ YAP"><br />
+                    <a href="/Home" class="fadeIn fourth">Ana Menüye Git</a><br />
+
+                    <br /><p class="fadeIn fourth errorMessage">@ViewBag.Message</p>
                 </form>
             }
         </div>

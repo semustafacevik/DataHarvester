@@ -3,57 +3,36 @@
     ViewBag.Title = "DataHarvester";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="~/Content/css/search-theme.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="s130">
-        <form>
-            <div class="inner-form-img">
-                <div class="center-img">
-                    <img src="~/Content/images/logo.png" width="100%" height="100%" />
-                </div>
+<div class="s130">
+    <form>
+        <div class="inner-form-img">
+            <div class="center-img">
+                <img src="~/Content/images/logo.png" width="100%" height="100%" />
             </div>
-            <div class="inner-form">
-                <div class="input-field first-wrap">
-                    <div class="svg-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                        </svg>
-                    </div>
-                    <input id="search" type="text" placeholder="domain.com" />
+        </div>
+        <div class="inner-form">
+            <div class="input-field first-wrap">
+                <div class="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                    </svg>
                 </div>
-                <div class="input-field second-wrap">
-                    <button class="btn-search" type="button"></button>
-                </div>
+                <input id="search" type="text" placeholder="domain.com" />
             </div>
+            <div class="input-field second-wrap">
+                <button class="btn-search" type="button"></button>
+            </div>
+        </div>
+        <div class="container">
+            <span class="info search-desc">Domain gir ve aramaya başla...</span><br />
+        </div>
+        @if (!User.Identity.IsAuthenticated)
+        {
             <div class="container">
-                <span class="info">Domain gir ve aramaya başla...</span><br />
+                <span class="info">LinkedIn, IP, Port, Host, Dosya listeleri ve daha fazla detay için </span><a href="Register">kayıt ol</a><span class="infoo"> veya </span><a href="Login">giriş yap</a>
             </div>
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <div class="container">
-                    <span class="info">LinkedIn, IP, Port, Host, Dosya listeleri ve daha fazla detay için </span><a href="/Security/Register">kayıt ol</a><span class="infoo"> veya </span><a href="/Security/Login">giriş yap</a>
-                </div>
-            }
-            <div class="container" id="ShowResult"></div>
-        </form>
-    </div>
-    <div class="container" id="ShowResults"></div>
-
-
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script src="~/Scripts/choices.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/custom.js"></script>
-
-</body>
-</html>
+        }
+        <div class="container" id="ShowResult"></div>
+    </form>
+</div>
+<div class="container" id="ShowResults"></div>

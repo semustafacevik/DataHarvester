@@ -11,7 +11,8 @@ namespace DataHarvester.Model.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +20,28 @@ namespace DataHarvester.Model.EntityFramework
         {
             this.tblResults = new HashSet<tblResult>();
         }
-    
+        
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Kullanýcý Adý doldurulmasý gereken bir alandýr.")]
+        [Display(Name = "Kullanýcý Adý")]
         public string username { get; set; }
+  
+        [Required(ErrorMessage = "Þifre doldurulmasý gereken bir alandýr.")]
+        [StringLength(25, MinimumLength = 6, ErrorMessage = "Þifre 6 haneli olmalýdýr.")]
+        [Display(Name = "Þifre")]
         public string password { get; set; }
+
+        [Required(ErrorMessage = "Ýsim doldurulmasý gereken bir alandýr.")]
+        [Display(Name = "Ýsim")]
         public string name { get; set; }
+
+        [Required(ErrorMessage = "E-mail adresi doldurulmasý gereken bir alandýr.")]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Lütfen mail formatýnýzý kontrol ediniz.")]
+        [Display(Name = "E-mail Adresi")]
         public string emailAddress { get; set; }
+
+        public bool isActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblResult> tblResults { get; set; }

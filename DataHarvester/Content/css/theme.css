@@ -14771,3 +14771,25 @@ div.btn-group {
     background-color: #2980b9 !important;
     border-color: #2980b9 !important;
 }
+
+.field-validation-error {
+    color: red;
+    font-weight: 500;
+    font-size: small;
+}
+
+.user-form {
+    width: 100%;
+    height: 100%;
+    padding: 50px 50px 8px 50px;
+    position: relative;
+    margin: auto;
+}
+
+.user-form-del {
+    width: 100%;
+    height: 100%;
+    padding: 8px 50px 50px 50px;
+    position: relative;
+    margin: auto;
+}

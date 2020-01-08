@@ -272,6 +272,7 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -326,6 +327,9 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\animsition.min.css" />
     <Content Include="Content\css\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\font-face.css" />
@@ -386,18 +390,36 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\animsition.min.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-progressbar.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.bundle.min.js" />
     <Content Include="Scripts\choices.js" />
     <Content Include="Scripts\circle-progress.min.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.counterup.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery.waypoints.min.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\perfect-scrollbar.min.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -523,9 +545,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ResultsFree.cshtml" />
     <Content Include="Views\Shared\_SearchError.cshtml" />
-    <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Result\Results.cshtml" />
     <Content Include="Views\Security\Login.cshtml" />
+    <Content Include="Views\User\UserForm.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

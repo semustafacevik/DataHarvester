@@ -319,7 +319,7 @@
                                 <div class="au-task__item au-task__item--pink">
                                     <div class="au-task__item-inner">
                                         <h5 class="task">
-                                            <a href="https://www.google.com/search?q=@profile%20LinkedIn%20-@Model.SearchQuery" target="_blank">@profile</a>
+                                            <a href="https://www.google.com/search?q=@profile%20LinkedIn" target="_blank">@profile</a>
                                         </h5>
                                     </div>
                                 </div>
@@ -347,7 +347,10 @@
                                 <div class="au-task__item au-task__item--darkblue">
                                     <div class="au-task__item-inner">
                                         <h5 class="task">
-                                            <a href="@link" target="_blank">@link</a>
+                                            @{
+                                                string shortLink = link.Length > 50 ? link.Substring(0,50) + "..." : link;
+                                            }
+                                            <a href="@link" target="_blank">@shortLink</a>
                                         </h5>
                                     </div>
                                 </div>
