@@ -17,8 +17,16 @@ namespace DataHarvester.Controllers
 
         public ActionResult Results()
         {
-            SearchResults rm = new ResultMember();
-            return View(rm);
+            ResultMember rm = new ResultMember();
+            return View("RRRes_Results", rm);
+        }
+
+
+
+
+        public ActionResult PrintResult()
+        {
+            return null;
         }
     }
 }

@@ -75,3 +75,20 @@ $(function () {
         })
     })
 })
+
+
+$(function () {
+    $(".profile-for-email").on("click", ".profile-username", function () {
+
+        var selectedProfile = $(this).text()
+        var query = $("#search").val()
+
+        $.ajax({
+            type: "GET",
+            url: "/Member/GetMailsForSelectedProfile?name=" + selectedProfile + "&query=" + query,
+            success: function (data) {
+                $("#email-tips").html(data)
+            }
+        })
+    })
+})

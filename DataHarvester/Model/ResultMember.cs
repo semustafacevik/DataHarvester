@@ -28,6 +28,9 @@ namespace DataHarvester.Model
         public string ResultPorts { get; set; }
         public List<string> ResultPortList { get; set; }
 
+        public List<string> ProfileForEmail { get; set; }
+
+
         public ResultMember()
         {
             ResultAllEmailList = new List<string>();
@@ -37,6 +40,40 @@ namespace DataHarvester.Model
             ResultLinkedInLinkList = new List<string>();
             ResultLinkedInProfileList = new List<string>();
             ResultPortList = new List<string>();
+            ProfileForEmail = new List<string>();
+        }
+
+        public ResultMember(string query)
+        {
+            SearchQuery = query;
+        }
+
+        private List<string> SelectProfile()
+        {
+            string[] profile;
+
+            foreach (var inProfile in ResultLinkedInProfileList)
+            {
+                profile = inProfile.Split('-');
+                profile = profile[0].Split(' ');
+                if (profile.Length == 3)
+                    ProfileForEmail.Add(profile[0].ToUpper() + " " + profile[1].ToUpper());
+            }
+            return ProfileForEmail;
+        }
+
+        public List<string> GenerateMail(string name)
+        {
+            List<string> mails = new List<string>();
+
+            string[] username = name.Split(' ');
+
+            mails.Add(StringReplace_Eng(username[0].ToLower()) + "." + StringReplace_Eng(username[1].ToLower()) + "@" + SearchQuery.ToLower());
+            mails.Add(StringReplace_Eng(username[0].ToLower()) + StringReplace_Eng(username[1].ToLower()) + "@" + SearchQuery.ToLower());
+            mails.Add(StringReplace_Eng(username[0].Substring(0, 1).ToLower()) + StringReplace_Eng(username[1].ToLower()) + "@" + SearchQuery.ToLower());
+            mails.Add(StringReplace_Eng(username[0].ToLower()) + StringReplace_Eng(username[1].Substring(0, 1).ToLower()) + "@" + SearchQuery.ToLower());
+
+            return mails;
         }
 
         public override List<string> PropertySplit()
@@ -82,6 +119,7 @@ namespace DataHarvester.Model
                     }
                 }
             }
+            SelectProfile();
             return ResultAllEmailList;
         }
 
@@ -187,6 +225,23 @@ namespace DataHarvester.Model
                 };
                 db.tblPorts.Add(newPortDB);
             }
+        }
+        private string StringReplace_Eng(string text)
+        {
+            text = text.Replace("İ", "I");
+            text = text.Replace("ı", "i");
+            text = text.Replace("Ğ", "G");
+            text = text.Replace("ğ", "g");
+            text = text.Replace("Ö", "O");
+            text = text.Replace("ö", "o");
+            text = text.Replace("Ü", "U");
+            text = text.Replace("ü", "u");
+            text = text.Replace("Ş", "S");
+            text = text.Replace("ş", "s");
+            text = text.Replace("Ç", "C");
+            text = text.Replace("ç", "c");
+            text = text.Replace(" ", "_");
+            return text;
         }
     }
 }

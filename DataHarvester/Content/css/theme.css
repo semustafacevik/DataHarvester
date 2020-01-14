@@ -14793,3 +14793,7 @@ div.btn-group {
     position: relative;
     margin: auto;
 }
+
+.cursorPointer{
+    cursor:pointer;
+}

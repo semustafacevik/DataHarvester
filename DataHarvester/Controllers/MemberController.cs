@@ -12,8 +12,7 @@ namespace DataHarvester.Controllers
     [Authorize]
     public class MemberController : Controller
     {
-        DataHarvesterDBEntities db;
-
+        ResultMember rm;
         public ActionResult Search(string query)
         {
             using (var client = new HttpClient())
@@ -31,7 +30,6 @@ namespace DataHarvester.Controllers
                 }
 
                 var result = responseTask.Result;
-                ResultMember rm;
 
                 if (result.IsSuccessStatusCode)
                 {
@@ -47,28 +45,13 @@ namespace DataHarvester.Controllers
             return PartialView("_SearchError");
         }
 
-        public ActionResult Result()
+        public ActionResult GetMailsForSelectedProfile(string name, string query)
         {
-            db = new DataHarvesterDBEntities();
+            rm = new ResultMember(query);
+            List<string> mails = rm.GenerateMail(name);
+            ViewBag.name = name;
 
-            tblResult resultDB = new tblResult();
-            resultDB = db.tblResults.Where(x=>x.userID == 104).ToList().Last();
-
-            ResultMember rm = new ResultMember();
-            rm.SearchQuery = resultDB.searchQuery;
-            rm.SearchDate = resultDB.searchDate.ToString();
-
-            List<tblEmail> emails = db.tblEmails.Where(x => x.resultID == resultDB.ID).ToList();
-
-            foreach (var item in emails)
-            {
-                if (item.emailAddress.Contains(rm.SearchQuery))
-                    rm.ResultEmailList.Add(item.emailAddress);
-                rm.ResultAllEmailList.Add(item.emailAddress);
-            }
-
-
-            return View("Results",rm);
+            return PartialView("SelectedProfileMails", mails);
         }
     }
 }

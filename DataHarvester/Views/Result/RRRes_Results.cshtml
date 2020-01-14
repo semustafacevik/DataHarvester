@@ -1,15 +1,12 @@
 ﻿@model DataHarvester.Model.ResultMember
-@{
-    ViewBag.Title = "Results";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
+<br />
 @*Title : Result*@
 <section class="welcome p-t-10">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="title-4">Sonuçlar</h1>
+                <h1 class="title-4">Sonuçlar (@Model.SearchQuery)</h1>
                 <hr class="line-seprate">
             </div>
         </div>
@@ -20,26 +17,33 @@
 <section class="statistic statistic2">
     <div class="container">
         <div class="row">
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--green">
-                    <h2 class="number">@Model.ResultEmailList.Count()</h2>
-                    <span class="desc">Bulunan EMAİL Sayısı (Eşleşen)</span>
-                    <div class="icon">
-                        <i class="zmdi zmdi-email"></i>
+                <div class="statistic__item statistic__item--green cursorPointer" onclick="location.href='#resEmail'">
+                    <div>
+                        <h2 class="number">@Model.ResultEmailList.Count()</h2>
+                        <span class="desc">Bulunan EMAİL Sayısı (Eşleşen)</span>
+                        <div class="icon">
+                            <i class="zmdi zmdi-email"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--blue">
-                    <h2 class="number">@Model.ResultAllEmailList.Count()</h2>
-                    <span class="desc">Bulunan EMAİL Sayısı</span>
-                    <div class="icon">
-                        <i class="zmdi zmdi-email-open"></i>
+                <div class="statistic__item statistic__item--blue cursorPointer" onclick="location.href='#resEmail'">
+                    <div>
+                        <h2 class="number">@Model.ResultAllEmailList.Count()</h2>
+                        <span class="desc">Bulunan EMAİL Sayısı</span>
+                        <div class="icon">
+                            <i class="zmdi zmdi-email-open"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--red">
+                <div class="statistic__item statistic__item--red cursorPointer" onclick="location.href='#resHost_File'">
                     <h2 class="number">@Model.ResultHostnameList.Count()</h2>
                     <span class="desc">Bulunan Host Sayısı</span>
                     <div class="icon">
@@ -47,8 +51,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--orange">
+                <div class="statistic__item statistic__item--orange cursorPointer" onclick="location.href='#resHost_File'">
                     <h2 class="number">@Model.ResultFileUrlList.Count()</h2>
                     <span class="desc">Bulunan Dosya Sayısı</span>
                     <div class="icon">
@@ -56,6 +61,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -63,8 +69,9 @@
 <section class="statistic statistic2">
     <div class="container">
         <div class="row">
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--purple">
+                <div class="statistic__item statistic__item--purple cursorPointer" onclick="location.href='#resIP_Port'">
                     <h2 class="number">@Model.ResultIPList.Count()</h2>
                     <span class="desc">Bulunan IP Sayısı</span>
                     <div class="icon">
@@ -72,8 +79,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--yellow">
+                <div class="statistic__item statistic__item--yellow cursorPointer" onclick="location.href='#resIP_Port'">
                     <h2 class="number">@Model.ResultPortList.Count()</h2>
                     <span class="desc">Bulunan Port Sayısı</span>
                     <div class="icon">
@@ -81,8 +89,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--pink">
+                <div class="statistic__item statistic__item--pink cursorPointer" onclick="location.href='#resLinkedIn'">
                     <h2 class="number">@Model.ResultLinkedInProfileList.Count()</h2>
                     <span class="desc">Bulunan LinkedIn Profile Sayısı</span>
                     <div class="icon">
@@ -92,7 +101,7 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <div class="statistic__item statistic__item--darkblue">
+                <div class="statistic__item statistic__item--darkblue cursorPointer" onclick="location.href='#resLinkedIn'">
                     <h2 class="number">@Model.ResultLinkedInLinkList.Count()</h2>
                     <span class="desc">Bulunan LinkedIn Link Sayısı</span>
                     <div class="icon">
@@ -106,7 +115,7 @@
 </section>
 
 @*Table : Email - AllEmail*@
-<section class="statistic statistic2">
+<section class="statistic statistic2" id="resEmail">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -170,7 +179,7 @@
 </section>
 
 @*Table : Host - File*@
-<section class="statistic statistic2">
+<section class="statistic statistic2" id="resHost_File">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -235,7 +244,7 @@
 </section>
 
 @*Table : IP - Port*@
-<section class="statistic statistic2">
+<section class="statistic statistic2" id="resIP_Port">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -300,7 +309,7 @@
 </section>
 
 @*Table : LinkedIn Profile / Link*@
-<section class="statistic statistic2">
+<section class="statistic statistic2" id="resLinkedIn">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -322,7 +331,7 @@
                                 <div class="au-task__item au-task__item--pink">
                                     <div class="au-task__item-inner">
                                         <h5 class="task">
-                                            <a href="https://www.google.com/search?q=@profile" target="_blank">@profile</a>
+                                            <a href="https://www.google.com/search?q=@profile%20LinkedIn" target="_blank">@profile</a>
                                         </h5>
                                     </div>
                                 </div>
@@ -350,12 +359,94 @@
                                 <div class="au-task__item au-task__item--darkblue">
                                     <div class="au-task__item-inner">
                                         <h5 class="task">
-                                            <a href="@link" target="_blank">@link</a>
+                                            @{
+                                                string shortLink = link.Length > 50 ? link.Substring(0, 50) + "..." : link;
+                                            }
+                                            <a href="@link" target="_blank">@shortLink</a>
                                         </h5>
                                     </div>
                                 </div>
                             }
                         </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+@*Title : LinkedIn For Email*@
+<section class="welcome p-t-10" id="profileForEmail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title-4">Email Önerileri (@Model.SearchQuery)</h1>
+                <hr class="line-seprate">
+            </div>
+        </div>
+    </div>
+</section>
+
+@*Table : LinkedIn For Email*@
+<section class="statistic statistic2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                    <div class="au-card-title">
+                        <div class="bg-overlay bg-overlay--purple"></div>
+                        <h3>
+                            <i class="zmdi zmdi-account-box-mail"></i>Profil Listesi
+                        </h3>
+                    </div>
+                    <div class="au-task js-list-load">
+                        <div class="au-task__title">
+                            <p>"@Model.SearchQuery" domainiyle ilişkili email önerisinde bulunulabilecek profiller (@Model.ProfileForEmail.Count() sonuç)</p>
+                        </div>
+                        <div class="au-task-list js-scrollbar3 profile-for-emaiil">
+
+                            @foreach (var profile in Model.ProfileForEmail)
+                            {
+                                <div class="au-task__item au-task__item--purple">
+                                    <div class="au-task__item-inner">
+                                        <p class="task">
+                                            <span class="cursorPointer profile-username">@profile</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                    <div class="au-card-title">
+                        <div class="bg-overlay bg-overlay--green"></div>
+                        <h3>
+                            <i class="zmdi zmdi-lamp"></i>Email Önerileri
+                        </h3>
+                    </div>
+                    <div class="au-task js-list-load" id="email-tips">
+                        @*<div class="au-task__title">
+                            <p id="p-username-mail">"@Model.SearchQuery" kişisine ilişkin email önerileri (@Model.SelectedProfileMails.Count() sonuç)</p>
+                        </div>
+                        <div class="au-task-list js-scrollbar3">
+
+                            @foreach (var mail in Model.SelectedProfileMails)
+                            {
+                                <div class="au-task__item au-task__item--green">
+                                    <div class="au-task__item-inner">
+                                        <h5 class="task">
+                                            <a href="//" target="_blank">@mail</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            }
+                        </div>*@
                     </div>
                 </div>
             </div>

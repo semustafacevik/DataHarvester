@@ -1,0 +1,18 @@
+﻿@model List<string>
+
+<div class="au-task__title">
+    <p id="p-username-mail"> "@ViewBag.name" adlı kişiye ilişkin email önerileri (@Model.Count() sonuç)</p>
+</div>
+<div class="au-task-list js-scrollbar3">
+
+    @foreach (var mail in Model)
+    {
+        <div class="au-task__item au-task__item--green">
+            <div class="au-task__item-inner">
+                <p class="task">
+                    <span>@mail</span>
+                </p>
+            </div>
+        </div>
+    }
+</div>

@@ -1,4 +1,10 @@
-﻿<header class="header-mobile header-mobile-2 d-block d-lg-none">
+﻿@using DataHarvester.Model.EntityFramework
+
+@{
+    tblUser user = (tblUser)Session["user"];
+}
+
+<header class="header-mobile header-mobile-2 d-block d-lg-none">
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
@@ -16,30 +22,14 @@
     <nav class="navbar-mobile">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard
-                    </a>
-                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                        <li>
-                            <a href="index.html">Dashboard 1</a>
-                        </li>
-                        <li>
-                            <a href="index2.html">Dashboard 2</a>
-                        </li>
-                        <li>
-                            <a href="index3.html">Dashboard 3</a>
-                        </li>
-                        <li>
-                            <a href="index4.html">Dashboard 4</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="chart.html">
-                        <i class="fas fa-chart-bar"></i>Charts
-                    </a>
-                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <a href="#profileForEmail">
+                            <i class="zmdi zmdi-email-open"></i>Email Önerileri
+                        </a>
+                    </li>
+                }
             </ul>
         </div>
     </nav>
@@ -54,42 +44,32 @@
                         <img src="~/Content/images/profile.png" alt="Profile" />
                     </div>
                     <div class="content">
-                        <a class="js-acc-btn" href="#">john doe</a>
+                        <a class="js-acc-btn">@user.name</a>
                     </div>
                     <div class="account-dropdown js-dropdown">
                         <div class="info clearfix">
                             <div class="image">
-                                <a href="#">
+                                <a href="/User/Update">
                                     <img src="~/Content/images/profile.png" alt="Profile" />
                                 </a>
                             </div>
                             <div class="content">
-                                <h5 class="name">
-                                    <a href="#">john doe</a>
-                                </h5>
-                                <span class="email">johndoe@example.com</span>
+                                <a href="/User/Update">
+                                    <h5 class="name">@user.name</h5>
+                                    <span class="email">@user.emailAddress</span>
+                                </a>
                             </div>
                         </div>
                         <div class="account-dropdown__body">
                             <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-account"></i>Account
-                                </a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-settings"></i>Setting
-                                </a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-money-box"></i>Billing
+                                <a href="/User/Update">
+                                    <i class="zmdi zmdi-account"></i>Hesap Bilgileri
                                 </a>
                             </div>
                         </div>
                         <div class="account-dropdown__footer">
-                            <a href="#">
-                                <i class="zmdi zmdi-power"></i>Logout
+                            <a href="/Logout">
+                                <i class="zmdi zmdi-power"></i>Çıkış Yap
                             </a>
                         </div>
                     </div>
@@ -98,10 +78,10 @@
             else
             {
                 <div class="content">
-                    <a class="js-acc-btn" href="Register">KAYIT OL</a>
+                    <a class="js-acc-btn" href="/Register">KAYIT OL</a>
                 </div>
                 <div class="content">
-                    <a class="js-acc-btn" href="Login">GİRİŞ YAP</a>
+                    <a class="js-acc-btn" href="/Login">GİRİŞ YAP</a>
                 </div>
             }
         </div>
