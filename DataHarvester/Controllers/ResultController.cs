@@ -18,7 +18,7 @@ namespace DataHarvester.Controllers
         public ActionResult Results()
         {
             ResultMember rm = new ResultMember();
-            return View("RRRes_Results", rm);
+            return View("Results", rm);
         }
 
 
